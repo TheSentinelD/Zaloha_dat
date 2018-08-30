@@ -2,8 +2,8 @@
 - name: Zálohování osobních dat uživatelů
   hosts: '{{ seznam_stanic }}'
   tasks:
-   - name: Sync the contents of one directory to another
-      win_robocopy:
+   - name: Synchronizae dvou složek
+      win_robocopy: 
        src: '{{ slozka_zdroj }}'
        dest: '{{ slozka_cil }}'
        recurse: yes
