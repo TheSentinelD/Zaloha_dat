@@ -3,8 +3,8 @@
   hosts: '{{ seznam_stanic }}'
   tasks:
    - name: Synchronizae dvou složek
-      win_robocopy: 
-       src: C:\Users\david.chlup\Documents
-       dest: X:\Backup
-       recurse: yes
+     win_robocopy: 
+      src: '{{ slozka_zdroj }}'
+      dest: '{{ slozka_cil }}'
+      recurse: yes
        
