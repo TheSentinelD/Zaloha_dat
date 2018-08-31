@@ -2,9 +2,15 @@
 - name: Zálohování osobních dat uživatelů
   hosts: '{{ seznam_stanic }}'
   tasks:
-   - name: Synchronizae dvou složek
+   - name: Zjistí seznam podsložek složky
+     win_find: 
+      paths: '{{ cesta_slozky }}'
+      recurse: True
+     register: seznam_slozek
+   - name: Synchronizace dvou složek
+     {% for item in site.data.samplelist.seznam_slozek %}
      win_robocopy: 
-      src: '{{ slozka_zdroj }}'
-      dest: '{{ slozka_cil }}'
-      recurse: yes
+      src: C:\Users\{{item.title}}
+      dest: C:\Users\test\{{item.title}}
+     {% endfor %}
        
