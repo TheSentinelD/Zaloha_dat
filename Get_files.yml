@@ -5,4 +5,5 @@
    - name: Zjistí seznam podsložek složky
      win_find: 
       paths: '{{ cesta_slozky }}'
+      recurse: True
      register: seznam_slozek
