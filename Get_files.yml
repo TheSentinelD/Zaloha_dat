@@ -5,3 +5,4 @@
    - name: Zjistí seznam podsložek složky
      win_find: 
       paths: '{{ cesta_slozky }}'
+     register: seznam_slozek
