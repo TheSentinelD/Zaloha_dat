@@ -1,0 +1,7 @@
+﻿---
+- name: Zjistí seznam podsložek složky
+  hosts: '{{ seznam_stanic }}'
+  tasks: 
+   - name: Zjistí seznam podsložek složky
+     win_find: 
+      paths: '{{ cesta_slozky }}'
