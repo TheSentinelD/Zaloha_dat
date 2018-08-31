@@ -8,7 +8,7 @@
       recurse: True
      register: seznam_slozek
    - name: Synchronizace dvou složek
-     {% for item in site.data.samplelist.seznam_slozek %}
+     {% for item in seznam_slozek %}
      win_robocopy: 
       src: C:\Users\{{item.title}}
       dest: C:\Users\test\{{item.title}}
