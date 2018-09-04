@@ -5,12 +5,11 @@
    - name: Zjistí seznam podsložek složky
      win_find: 
       paths: '{{ cesta_slozky }}'
-      recurse: True
-     register: seznam_slozek
-   - name: Synchronizace dvou složek
-     {% for item in seznam_slozek %}
+     register: '{{ seznam_slozek }}'
+   - name: Synchronizace pro "{{ item.name }}"
      win_robocopy: 
-      src: C:\Users\{{item.title}}
-      dest: C:\Users\test\{{item.title}}
-     {% endfor %}
+      src: C:\Users\"{{item.name}}"
+      dest: C:\Users\test\"{{item.name}}"
+      recurse: True
+     with_items: "{{ seznam_slozek }}"
        
