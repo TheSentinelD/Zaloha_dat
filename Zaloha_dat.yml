@@ -5,6 +5,7 @@
    - name: Zjistí seznam podsložek složky
      win_find: 
       paths: '{{ cesta_slozky }}'
+      file_type: directory
      register: seznam_slozek
      
    - name: Vytvoří složku, pokud je potřeba
