@@ -6,7 +6,7 @@
      win_find: 
       paths: '{{ cesta_slozky }}'
      register: seznam_slozek
-   - name: "Synchronizace pro {{ item.name }}"
+   - name: Synchronizace
      win_robocopy: 
       src: "C:\\Users\\{{ item.name }}"
       dest: "C:\\Users\\test\\{{ item.name }}"
