@@ -8,8 +8,9 @@
       file_type: directory
      register: seznam_slozek
      
-   - name: Test    
-     msg: "{{ seznam_slozek }}"
+   - name: Test  
+     tasks: 
+      msg: "{{ seznam_slozek }}"
      
    - name: Vytvoří složku, pokud je potřeba
      win_file: 
