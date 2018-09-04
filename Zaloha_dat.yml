@@ -10,7 +10,7 @@
      
    - name: Vytvoří složku, pokud je potřeba
      win_file: 
-      path: "C:\\Users\\test\\{{ item }}\\Documents"
+      path: "C:\\Users\\test\\{{ item.filename }}\\Documents"
      with_items: "{{ seznam_slozek }}"
       
    - name: Synchronizace
