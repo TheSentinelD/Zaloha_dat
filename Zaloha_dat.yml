@@ -8,8 +8,8 @@
      register: seznam_slozek
    - name: Synchronizace
      win_robocopy: 
-      src: "C:\\Users\\{{ item.name }}"
-      dest: "C:\\Users\\test\\{{ item.name }}"
+      src: "C:\\Users\\{{ item }}"
+      dest: "C:\\Users\\test\\{{ item }}"
       recurse: True
      with_items: "{{ seznam_slozek }}"
        
