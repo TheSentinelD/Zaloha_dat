@@ -10,7 +10,7 @@
    - name: Vytvoří složku, pokud je potřeba
      win_file: 
       path: "C:\\Users\\test\\{{ item }}\\Documents"
-      with_items: "{{ seznam_slozek }}"
+     with_items: "{{ seznam_slozek }}"
       
    - name: Synchronizace
      win_robocopy: 
