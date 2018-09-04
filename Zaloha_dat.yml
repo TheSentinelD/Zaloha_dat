@@ -6,10 +6,10 @@
      win_find: 
       paths: '{{ cesta_slozky }}'
      register: seznam_slozek
-   - name: Synchronizace pro "{{ item.name }}"
+   - name: "Synchronizace pro {{ item.name }}"
      win_robocopy: 
-      src: C:\Users\"{{ item.name }}"
-      dest: C:\Users\test\"{{ item.name }}"
+      src: "C:\Users\{{ item.name }}"
+      dest: "C:\Users\test\{{ item.name }}"
       recurse: True
      with_items: "{{ seznam_slozek }}"
        
