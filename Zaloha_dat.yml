@@ -6,10 +6,16 @@
      win_find: 
       paths: '{{ cesta_slozky }}'
      register: seznam_slozek
+     
+   - name: Vytvoří složku, pokud je potřeba
+     win_file: 
+      path: "C:\\Users\\test\\{{ item }}\\Documents"
+      with_items: "{{ seznam_slozek }}"
+      
    - name: Synchronizace
      win_robocopy: 
-      src: "C:\\Users\\{{ item }}"
-      dest: "C:\\Users\\test\\{{ item }}"
+      src: "C:\\Users\\{{ item }}\\Documents"
+      dest: "C:\\Users\\test\\{{ item }}\\Documents"
       recurse: True
      with_items: "{{ seznam_slozek }}"
        
