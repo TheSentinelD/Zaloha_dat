@@ -10,8 +10,7 @@
      
    - name: debug
       debug:
-       var: "{{ item.filename }}"
-      with_items: "{{ seznam_slozek.files }}"
+       var: seznam_slozek.files.item.filename 
      
    - name: Vytvoří složku, pokud je potřeba
      win_file: 
