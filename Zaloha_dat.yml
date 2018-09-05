@@ -9,8 +9,9 @@
      register: seznam_slozek
      
    - name: debug
-      debug:
-       var: seznam_slozek.files.item.filename 
+     debug:
+      var: {{ item.filename }}
+     with_items: "{{ seznam_slozek.files }}"
      
    - name: Vytvoří složku, pokud je potřeba
      win_file: 
