@@ -4,7 +4,7 @@
   tasks:
    - name: Zjistí seznam podsložek složky
      win_find: 
-      paths: '{{ cesta_slozky |win_dirname }}'
+      paths: '{{ cesta_slozky | win_dirname }}'
       file_type: directory
      register: seznam_slozek
      
