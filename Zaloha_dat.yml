@@ -4,7 +4,7 @@
   tasks:
    - name: Zjistí seznam podsložek složky
      win_find: 
-      paths: '{{ cesta_slozky | win_dirname }}'
+      paths: '{{ cesta_slozky }}'
       file_type: directory
      register: seznam_slozek
      
@@ -15,7 +15,7 @@
       
    - name: Synchronizace
      win_robocopy: 
-      src: "C:\\Users\\{{ item | win_dirname }}\\Documents"
+      src: "C:\\Users\\{{ item }}\\Documents"
       dest: "C:\\Users\\test\\{{ item }}\\Documents"
       recurse: True
      with_items: "{{ seznam_slozek.files }}"
