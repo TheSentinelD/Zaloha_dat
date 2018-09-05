@@ -9,7 +9,8 @@
      register: seznam_slozek
      
    - name: test
-     debug: seznam_slozek.files[filename]
+     debug: 
+      msg: seznam_slozek.files[filename]
      
    - name: Vytvoří složku, pokud je potřeba
      win_file: 
