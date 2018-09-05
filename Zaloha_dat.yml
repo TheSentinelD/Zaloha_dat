@@ -4,19 +4,19 @@
   tasks:
    - name: Zjistí seznam podsložek složky
      win_find: 
-      paths: '{{ cesta_slozky }}'
+      paths: '{{ cesta_slozky |win_dirname }}'
       file_type: directory
      register: seznam_slozek
      
    - name: Vytvoří složku, pokud je potřeba
      win_file: 
-      path: "C:\\Users\\test\\{{ item | win_dirname }}\\Documents"
+      path: "C:\\Users\\test\\{{ item }}\\Documents"
      with_items: "{{ seznam_slozek.files }}"
       
    - name: Synchronizace
      win_robocopy: 
       src: "C:\\Users\\{{ item | win_dirname }}\\Documents"
-      dest: "C:\\Users\\test\\{{ item | win_dirname }}\\Documents"
+      dest: "C:\\Users\\test\\{{ item }}\\Documents"
       recurse: True
      with_items: "{{ seznam_slozek.files }}"
        
