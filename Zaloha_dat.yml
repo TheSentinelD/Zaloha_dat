@@ -7,6 +7,8 @@
       paths: '{{ cesta_slozky }}'
       file_type: directory
      register: seznam_slozek
+     
+   - name: test
      debug: seznam_slozek.files[filename]
      
    - name: Vytvoří složku, pokud je potřeba
