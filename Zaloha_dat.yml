@@ -10,13 +10,13 @@
      
    - name: Vytvoří složku, pokud je potřeba
      win_file: 
-      path: "C:\\Users\\test\\{{ item.files }}\\Documents"
-     with_items: "{{ seznam_slozek }}"
+      path: "C:\\Users\\test\\{{ item }}\\Documents"
+     with_items: "{{ seznam_slozek.files }}"
       
    - name: Synchronizace
      win_robocopy: 
       src: "C:\\Users\\{{ item }}\\Documents"
       dest: "C:\\Users\\test\\{{ item }}\\Documents"
       recurse: True
-     with_items: "{{ seznam_slozek }}"
+     with_items: "{{ seznam_slozek.files }}"
        
