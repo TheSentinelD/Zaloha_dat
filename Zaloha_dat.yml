@@ -10,7 +10,7 @@
      
    - name: test
      debug: 
-      var: seznam_slozek['filename']
+      var: {{ seznam_slozek | win_dirname }}
      
    - name: Vytvoří složku, pokud je potřeba
      win_file: 
