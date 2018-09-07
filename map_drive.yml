@@ -5,7 +5,8 @@
    - name: Mapování disku pod písmenem I
      win_mapped_drive: 
       letter: I
-      path: \\storage.ccv.cz\StationBackup
+      path: \\storage.ccv.cz\
+      state: present
       username: '{{ ucet }}'
       password: '{{ heslo }}'
    
