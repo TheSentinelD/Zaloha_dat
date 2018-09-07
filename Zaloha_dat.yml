@@ -25,6 +25,6 @@
       dest: "C:\\Ansible\\{{ item.filename }}\\Documents\\"
       # recurse: True ---ignorované díky flags
       # Purge bude díky flags ignorovanej
-      flags: /XJ /e     #V Documents je ve skutečnosti uloženo Videa, Obrázky, Hudba, ale mají hardlink ven a táří se, že jsou venku
+      flags: /XJ /e     #V Documents je ve skutečnosti uloženo Videa, Obrázky, Hudba, ale mají hardlink ven a tváří se, že jsou venku
      with_items: "{{ seznam_slozek.files }}"
        
