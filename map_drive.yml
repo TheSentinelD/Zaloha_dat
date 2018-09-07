@@ -5,7 +5,6 @@
   - name: Odmapování disku
      win_mapped_drive: 
       letter: I
-      path: "\\storage.ccv.cz\StationBackup"
       state: absent
       
    - name: Mapování disku pod písmenem I
