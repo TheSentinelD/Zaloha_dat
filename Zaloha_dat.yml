@@ -23,7 +23,8 @@
      win_robocopy: 
       src: "C:\\Users\\{{ item.filename }}\\Documents\\"
       dest: "C:\\Ansible\\{{ item.filename }}\\Documents\\"
-      recurse: True
-      flags: /XJ     #V Documents je ve skutečnosti uloženo Videa, Obrázky, Hudba, ale mají hardlink ven a táří se, že jsou venku
+      # recurse: True ---ignorované díky flags
+      # Purge bude díky flags ignorovanej
+      flags: /XJ /e     #V Documents je ve skutečnosti uloženo Videa, Obrázky, Hudba, ale mají hardlink ven a táří se, že jsou venku
      with_items: "{{ seznam_slozek.files }}"
        
