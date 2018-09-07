@@ -1,5 +1,5 @@
 ﻿---
-- name: Zálohování osobních dat uživatelů
+- name: Zálohování pracovních dat uživatelů
   hosts: '{{ seznam_stanic }}'
   tasks:
    - name: Zjistí seznam podsložek složky
