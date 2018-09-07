@@ -16,6 +16,7 @@
    - name: Vytvoří složku, pokud je potřeba
      win_file: 
       path: "C:\\Users\\test\\{{ item.filename }}\\Documents"
+      state: directory
      with_items: "{{ seznam_slozek.files }}"
       
    - name: Synchronizace
