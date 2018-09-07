@@ -7,13 +7,13 @@
       letter: I
       state: absent
       
-   - name: Mapování disku pod písmenem I
-     win_mapped_drive: 
-      letter: I
-      path: '{{ cesta }}'
-      state: present
-      username: '{{ ucet }}'
-      password: '{{ heslo }}'
+  - name: Mapování disku pod písmenem I
+    win_mapped_drive: 
+     letter: I
+     path: '{{ cesta }}'
+     state: present
+     username: '{{ ucet }}'
+     password: '{{ heslo }}'
    
 #   - name: test
 #     win_file: 
