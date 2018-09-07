@@ -9,13 +9,13 @@
       username: '{{ ucet }}'
       password: '{{ heslo }}'
    
-   - name: test
-     win_file: 
-      path: I:\test
-      state: directory
-   
-   - name: Odmapování disku
-     win_mapped_drive: 
-      letter: I
-      path: \\storage.ccv.cz\StationBackup
-      state: absent
+#   - name: test
+#     win_file: 
+#      path: I:\test
+#      state: directory
+#   
+#   - name: Odmapování disku
+#     win_mapped_drive: 
+#      letter: I
+#      path: \\storage.ccv.cz\StationBackup
+#      state: absent
