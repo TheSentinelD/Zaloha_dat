@@ -10,19 +10,19 @@
      
    - name: debug
      debug:
-      msg: "C:\\Ansible\\{{ item.filename }}\\Documents"
+      msg: "C:\\Ansible\\{{ item.filename }}\\Documents\\"
      with_items: "{{ seznam_slozek.files }}"
      
    - name: Vytvoří složku, pokud je potřeba
      win_file: 
-      path: "C:\\Ansible\\{{ item.filename }}\\Documents"
+      path: "C:\\Ansible\\{{ item.filename }}\\Documents\\"
       state: directory
      with_items: "{{ seznam_slozek.files }}"
       
    - name: Synchronizace
      win_robocopy: 
-      src: "C:\\Users\\{{ item.filename }}\\Documents"
-      dest: "C:\\Ansible\\{{ item.filename }}\\Documents"
+      src: "C:\\Users\\{{ item.filename }}\\Documents\\"
+      dest: "C:\\Ansible\\{{ item.filename }}\\Documents\\"
       recurse: True
      with_items: "{{ seznam_slozek.files }}"
        
