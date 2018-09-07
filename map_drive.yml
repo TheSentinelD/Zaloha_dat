@@ -2,6 +2,12 @@
 - name: Mapování vzdáleného disku
   hosts: '{{ seznam_stanic }}'
   tasks: 
+  - name: Odmapování disku
+     win_mapped_drive: 
+      letter: I
+      path: "\\storage.ccv.cz\StationBackup"
+      state: absent
+      
    - name: Mapování disku pod písmenem I
      win_mapped_drive: 
       letter: I
