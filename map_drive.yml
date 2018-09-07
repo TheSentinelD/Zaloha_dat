@@ -1,0 +1,10 @@
+﻿---
+- name: Mapování vzdáleného disku
+  hosts: '{{ seznam_stanic }}'
+  tasks: 
+   - name: Mapování disku pod písmenem I
+     win_mapped_drive: 
+      letter: I
+      path: \\storage.ccv.cz\StationBackup
+      username: '{{ ucet }}'
+      password: '{{ heslo }}'
