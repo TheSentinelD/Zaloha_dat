@@ -20,8 +20,7 @@
      path: I:\test
      state: directory
   
-  - name: Odmapování disku
-    win_mapped_drive: 
-     letter: I
-     path: \\storage.ccv.cz\StationBackup
-     state: absent
+#  - name: Odmapování disku
+#    win_mapped_drive: 
+#     letter: I
+#     state: absent
