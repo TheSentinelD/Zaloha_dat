@@ -9,4 +9,4 @@
   #   register: seznam_slozek
    - name: debug
      debug: 
-      msg: "{{ ansible_hostname }}"
+      msg: "{{ ansible_hostname }}_{{ ansible_product_serial }}"
