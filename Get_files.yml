@@ -7,3 +7,6 @@
       paths: '{{ cesta_slozky }}'
       recurse: True
      register: seznam_slozek
+   - name: debug
+     debug: 
+      msg: "{{ hostvars.ansible_facts.ansible_hostname }}_{{ hostvars.ansible_facts.ansible_product_serial }}"
