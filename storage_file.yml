@@ -1,0 +1,11 @@
+﻿---
+- name: Manipulace se storage složkami
+  hosts: '{{ seznam_stanic }}'
+  tasks: 
+  - name: Založí složku na storage
+     win_file: 
+      path: \\storage.ccv.cz\StationBackup\test
+      state: directory
+     vars: 
+      ansible_become_user: '{{ ucet }}'
+      ansible_become_pass: '{{ heslo }}'
