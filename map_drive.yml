@@ -17,7 +17,7 @@
    
   - name: test
     win_file: 
-     path: I:\test
+     path: "{{ cesta }}\\test"
      state: directory
   
 #  - name: Odmapování disku
