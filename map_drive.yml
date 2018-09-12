@@ -2,21 +2,9 @@
 - name: Mapování vzdáleného disku
   hosts: '{{ seznam_stanic }}'
   tasks: 
-  - name: Odmapování disku
-    win_mapped_drive: 
-     letter: I
-     state: absent
-      
-  - name: Mapování disku pod písmenem I
-    win_command: 'net use I: {{ cesta }} /user:{{ ucet }} {{ heslo }} /p:no'
-
-   
-  - name: test
-    win_file: 
-     path: I:\test
-     state: directory
-  
-#  - name: Odmapování disku
-#    win_mapped_drive: 
-#     letter: I
-#     state: absent
+   - name: Mapování disku pod písmenem I
+     win_mapped_drive: 
+      letter: I
+      path: \\storage.ccv.cz\StationBackup
+      username: '{{ ucet }}'
+      password: '{{ heslo }}'
