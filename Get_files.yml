@@ -2,11 +2,8 @@
 - name: Zjistí seznam podsložek složky
   hosts: '{{ seznam_stanic }}'
   tasks: 
-  # - name: Zjistí seznam podsložek složky
-  #   win_find: 
-  #    paths: '{{ cesta_slozky }}'
-  #    recurse: True
-  #   register: seznam_slozek
-   - name: debug
-     debug: 
-      msg: "{{ ansible_hostname }}_{{ ansible_product_serial }}"
+   - name: Zjistí seznam podsložek složky
+     win_find: 
+      paths: '{{ cesta_slozky }}'
+      recurse: True
+     register: seznam_slozek
