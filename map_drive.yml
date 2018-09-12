@@ -8,7 +8,7 @@
      state: absent
       
   - name: Mapování disku pod písmenem I
-    win_commad: 'net use I: {{ cesta }} /user:{{ ucet }} {{ heslo }} /p:no'
+    win_command: 'net use I: {{ cesta }} /user:{{ ucet }} {{ heslo }} /p:no'
 
    
   - name: test
