@@ -8,16 +8,12 @@
      state: absent
       
   - name: Mapování disku pod písmenem I
-    win_mapped_drive: 
-     letter: I
-     path: '{{ cesta }}'
-     state: present
-     username: '{{ ucet }}'
-     password: '{{ heslo }}'
+    win_commad: 'net use I: {{ cesta }} /user:{{ ucet }} {{ heslo }} /p:no'
+
    
   - name: test
     win_file: 
-     path: "{{ cesta }}\\test"
+     path: I:\test
      state: directory
   
 #  - name: Odmapování disku
