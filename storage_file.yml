@@ -7,5 +7,6 @@
      path: '{{ cesta }}'
      state: directory
     vars: 
+     ansible_become: yes
      ansible_become_user: '{{ ucet }}'
      ansible_become_pass: '{{ heslo }}'
