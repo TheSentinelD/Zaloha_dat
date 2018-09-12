@@ -3,9 +3,9 @@
   hosts: '{{ seznam_stanic }}'
   tasks: 
   - name: Odmapování disku
-     win_mapped_drive: 
-      letter: I
-      state: absent
+    win_mapped_drive: 
+     letter: I
+     state: absent
       
   - name: Mapování disku pod písmenem I
     win_mapped_drive: 
