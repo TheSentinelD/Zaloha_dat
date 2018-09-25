@@ -28,7 +28,7 @@
    - name: Synchronizace
      win_robocopy: 
       src: "C:\\Users\\{{ item.filename }}\\Documents\\"
-      dest: "{{ cesta }}\\{{ ansible_hostname }}_{{ ansible_product_serial }}\\{{ item.filename }}\\Documents\\"
+      dest: "{{ cesta }}\\{{ ansible_hostname|replace(" ","") }}_{{ ansible_product_serial|replace(" ","") }}\\{{ item.filename }}\\Documents\\"
       # recurse: True ---ignorované díky flags
       # Purge bude díky flags ignorovanej
       flags: /XJ /e     #V Documents je ve skutečnosti uloženo Videa, Obrázky, Hudba, ale mají hardlink ven a tváří se, že jsou venku
