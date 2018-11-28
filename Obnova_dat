@@ -1,0 +1,40 @@
+- name: Zálohování pracovních dat uživatelů
+  hosts: '{{ seznam_stanic }}'
+  tasks:
+   - name: Zjistí seznam podsložek složky
+     win_find: 
+      paths: '{{ cesta_slozky }}'
+      file_type: directory
+     register: seznam_slozek
+     
+   - name: debug
+     debug:
+      msg: "{{ cesta }}\\{{ ansible_hostname }}_{{ ansible_product_serial }}\\{{ item.filename }}\\Documents\\"
+     with_items: "{{ seznam_slozek.files }}"
+     
+#   - name: Vytvoří složku, pokud je potřeba
+#     win_file: 
+#      path: "{{ cesta }}\\{{ ansible_hostname }}_{{ ansible_product_serial }}\\{{ item.filename }}\\Documents\\"
+#      state: directory
+#     with_items: "{{ seznam_slozek.files }}"
+#     vars: 
+#      ansible_become: yes
+#      ansible_become_method: runas
+#      ansible_become_user: '{{ ucet }}'
+#      ansible_become_pass: '{{ heslo }}'
+#      ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
+      
+   - name: Synchronizace
+     win_robocopy: 
+      dest: "C:\\Users\\{{ item.filename }}\\Documents\\"
+      src: "{{ cesta }}\\{{ ansible_hostname|replace(' ','') }}_{{ ansible_product_serial|replace(' ','') }}\\{{ item.filename }}\\Documents\\"
+      # recurse: True ---ignorované díky flags
+      # Purge bude díky flags ignorovanej
+      flags: /XJ /e     #V Documents je ve skutečnosti uloženo Videa, Obrázky, Hudba, ale mají hardlink ven a tváří se, že jsou venku
+     with_items: "{{ seznam_slozek.files }}"
+     vars: 
+      ansible_become: yes
+      ansible_become_method: runas
+      ansible_become_user: '{{ ucet }}'
+      ansible_become_pass: '{{ heslo }}'
+      ansible_become_flags: logon_type=new_credentials logon_flags=netcredentials_only
